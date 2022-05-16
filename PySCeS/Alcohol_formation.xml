@@ -29,6 +29,11 @@
           <unit kind="second" exponent="1" scale="1" multiplier="60"/>
         </listOfUnits>
       </unitDefinition>
+      <unitDefinition metaid="METAID_U5" id="u5" name="dimensionless">
+        <listOfUnits>
+          <unit kind="dimensionless" exponent="1" scale="1" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
     </listOfUnitDefinitions>
     <listOfCompartments>
       <compartment id="v0" name="Tube" spatialDimensions="3" size="10" units="u0" constant="true"/>
@@ -227,6 +232,11 @@
               <apply>
                 <plus/>
                 <ci> s0 </ci>
+                <apply>
+                  <divide/>
+                  <ci> s1 </ci>
+                  <ci> Kp </ci>
+                </apply>
                 <ci> Km </ci>
               </apply>
             </apply>
@@ -246,6 +256,15 @@
                 <enzymeml:parameter xmlns:enzymeml="http://sbml.org/enzymeml/version2">
                   <enzymeml:initialValue>3.0</enzymeml:initialValue>
                   <enzymeml:upperBound>13.0</enzymeml:upperBound>
+                  <enzymeml:lowerBound>1e-07</enzymeml:lowerBound>
+                </enzymeml:parameter>
+              </annotation>
+            </localParameter>
+            <localParameter id="Kp" value="3" units="u5">
+              <annotation>
+                <enzymeml:parameter xmlns:enzymeml="http://sbml.org/enzymeml/version2">
+                  <enzymeml:initialValue>3.0</enzymeml:initialValue>
+                  <enzymeml:upperBound>6.0</enzymeml:upperBound>
                   <enzymeml:lowerBound>1e-07</enzymeml:lowerBound>
                 </enzymeml:parameter>
               </annotation>

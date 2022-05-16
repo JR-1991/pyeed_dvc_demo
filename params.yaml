@@ -1,42 +1,36 @@
 Ethanol formation:
-  config:
-    Km:
-      initial_value: 50.0
-      lower: 1.0e-07
-      unit: mmole / l
-      upper: 60.0
-      value: 50.0
-    kcat:
-      initial_value: 3.0
-      lower: 1.0e-07
-      unit: 1 / min
-      upper: 13.0
-      value: 3.0
-    Kp:
-      initial_value: 3.0
-      lower: 1.0e-07
-      unit: mmole / l
-      upper: 6.0
-      value: 3.0
-  equation: kcat * p1 * s0 / (s0 + (s1 / Kp) + Km)
-  reaction: r1
+    config:
+        Km:
+            initial_value: 50.0
+            lower: 1.0e-07
+            unit: mmole / l
+            upper: 60.0
+            value: 50.0
+        kcat:
+            initial_value: 3.0
+            lower: 1.0e-07
+            unit: 1 / min
+            upper: 13.0
+            value: 3.0
+    equation: kcat * p1 * s0 / (s0 + Km)
+    reaction: r1
 LoadEnzymeML:
-  path: Ethanol_Formation_Simulated.omex
+    path: Ethanol_Formation_Simulated.omex
 ParameterEstimation:
-  thinlayer: pysces
+    thinlayer: pysces
 Pyruvate Decarboxylation:
-  config:
-    Km:
-      initial_value: 20.0
-      lower: 1.0e-07
-      unit: mmole / l
-      upper: 30.0
-      value: 20.0
-    kcat:
-      initial_value: 5.0
-      lower: 1.0e-07
-      unit: 1 / min
-      upper: 15.0
-      value: 5.0
-  equation: kcat * p0 * s1 / (s1 + Km)
-  reaction: r0
+    config:
+        Km:
+            initial_value: 20.0
+            lower: 1.0e-07
+            unit: mmole / l
+            upper: 30.0
+            value: 20.0
+        kcat:
+            initial_value: 5.0
+            lower: 1.0e-07
+            unit: 1 / min
+            upper: 15.0
+            value: 5.0
+    equation: kcat * p0 * s1 / (s1 + Km)
+    reaction: r0

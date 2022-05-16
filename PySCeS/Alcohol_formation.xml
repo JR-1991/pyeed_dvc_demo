@@ -227,6 +227,11 @@
               <apply>
                 <plus/>
                 <ci> s0 </ci>
+                <apply>
+                  <divide/>
+                  <ci> s1 </ci>
+                  <ci> Kp </ci>
+                </apply>
                 <ci> Km </ci>
               </apply>
             </apply>
@@ -246,6 +251,15 @@
                 <enzymeml:parameter xmlns:enzymeml="http://sbml.org/enzymeml/version2">
                   <enzymeml:initialValue>3.0</enzymeml:initialValue>
                   <enzymeml:upperBound>13.0</enzymeml:upperBound>
+                  <enzymeml:lowerBound>1e-07</enzymeml:lowerBound>
+                </enzymeml:parameter>
+              </annotation>
+            </localParameter>
+            <localParameter id="Kp" value="3" units="u1">
+              <annotation>
+                <enzymeml:parameter xmlns:enzymeml="http://sbml.org/enzymeml/version2">
+                  <enzymeml:initialValue>3.0</enzymeml:initialValue>
+                  <enzymeml:upperBound>6.0</enzymeml:upperBound>
                   <enzymeml:lowerBound>1e-07</enzymeml:lowerBound>
                 </enzymeml:parameter>
               </annotation>

@@ -1,3 +1,4 @@
 zntrack
 pysces
 lmfit
+ipyparallel

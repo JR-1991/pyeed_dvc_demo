@@ -9,14 +9,14 @@ stages:
           path: Ethanol_Formation_Simulated.omex
     outs:
     - path: nodes/LoadEnzymeML/outs.json
-      md5: cb70afae888d380a78b2de293a44d188
+      md5: d40b1065b77684f020b6752ea68fce3c
       size: 56648
   Pyruvate Decarboxylation:
     cmd: "python3 -c \"from src.model import Model; Model.load(name='Pyruvate Decarboxylation').run_and_save()\"\
       \ "
     deps:
     - path: nodes/LoadEnzymeML/outs.json
-      md5: cb70afae888d380a78b2de293a44d188
+      md5: d40b1065b77684f020b6752ea68fce3c
       size: 56648
     params:
       params.yaml:
@@ -38,14 +38,14 @@ stages:
           reaction: r0
     outs:
     - path: nodes/Pyruvate Decarboxylation/outs.json
-      md5: b33ed87ed3e4a5bf62273b297230e3f3
+      md5: 825eddf1b0c6d2431f9b991c92292bfd
       size: 62008
   Ethanol formation:
     cmd: "python3 -c \"from src.model import Model; Model.load(name='Ethanol formation').run_and_save()\"\
       \ "
     deps:
     - path: nodes/Pyruvate Decarboxylation/outs.json
-      md5: b33ed87ed3e4a5bf62273b297230e3f3
+      md5: 825eddf1b0c6d2431f9b991c92292bfd
       size: 62008
     params:
       params.yaml:
@@ -67,14 +67,14 @@ stages:
           reaction: r1
     outs:
     - path: nodes/Ethanol formation/outs.json
-      md5: 38904f67cd13e71ba5a07b271fbbbd9e
+      md5: 9da7af9f4266cbdbe0bdcb9c184b5773
       size: 62568
   ParameterEstimation:
     cmd: "python3 -c \"from src.estimation import ParameterEstimation; ParameterEstimation.load(name='ParameterEstimation').run_and_save()\"\
       \ "
     deps:
     - path: nodes/Ethanol formation/outs.json
-      md5: 38904f67cd13e71ba5a07b271fbbbd9e
+      md5: 9da7af9f4266cbdbe0bdcb9c184b5773
       size: 62568
     params:
       params.yaml:
@@ -82,5 +82,5 @@ stages:
           thinlayer: pysces
     outs:
     - path: nodes/ParameterEstimation/metrics_no_cache.json
-      md5: 7e6f297bbc95cd6e69e2672c296c6acf
-      size: 367
+      md5: 5bfd1c973fe1f023dc45d50f88968110
+      size: 352

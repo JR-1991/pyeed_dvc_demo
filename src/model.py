@@ -34,7 +34,7 @@ class Model(Node):
                 parameter.initial_value = param_config.get("initial_value")
                 parameter.lower = param_config.get("lower")
                 parameter.upper = param_config.get("upper")
-                parameter.unit = param_config.get("unit")
+                parameter.unit = self.enzmldoc._convertToUnitDef(param_config.get("unit"))
             else:
                 raise ValueError(
                     f"Please specify at least an `initial value` for parameter `{parameter.name}`"

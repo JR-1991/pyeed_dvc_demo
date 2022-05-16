@@ -1,11 +1,11 @@
 Ethanol formation:
     config:
         Km:
-            initial_value: 50.0
+            initial_value: 20.0
             lower: 1.0e-07
             unit: mmole / l
-            upper: 60.0
-            value: 50.0
+            upper: 30.0
+            value: 20.0
         kcat:
             initial_value: 3.0
             lower: 1.0e-07

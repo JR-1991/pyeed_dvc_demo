@@ -6,7 +6,7 @@
 </h4>
 
 [![ZnTrack](https://img.shields.io/badge/Powered%20by-ZnTrack-%23007CB0)](https://zntrack.readthedocs.io/en/latest/)
-<a href="https://www.qries.com/" target="_blank" >
+<a href="https://studio.iterative.ai/user/JR-1991/views/pyeed_dvc_demo-bpabazgusq" target="_blank" >
          <img alt="DVC" src="https://img.shields.io/badge/-tracked-white.svg?logo=data-version-control&link=https://dvc.org/?utm_campaign=badge">
 </a>
  

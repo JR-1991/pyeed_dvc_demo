@@ -12,7 +12,13 @@ Ethanol formation:
             unit: 1 / min
             upper: 13.0
             value: 3.0
-    equation: kcat * p1 * s0 / (s0 + Km)
+        Kp:
+            initial_value: 3.0
+            lower: 1.0e-07
+            unit: dimensionless
+            upper: 7.0
+            value: 3.0
+    equation: kcat * p1 * s0 / (s0 + (s1 / Kp ) + Km)
     reaction: r1
 LoadEnzymeML:
     path: Ethanol_Formation_Simulated.omex

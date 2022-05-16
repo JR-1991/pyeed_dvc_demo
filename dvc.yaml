@@ -1,0 +1,36 @@
+stages:
+  LoadEnzymeML:
+    cmd: "python3 -c \"from src.load import LoadEnzymeML; LoadEnzymeML.load(name='LoadEnzymeML').run_and_save()\"\
+      \ "
+    params:
+    - LoadEnzymeML
+    outs:
+    - nodes/LoadEnzymeML/outs.json
+  Pyruvate Decarboxylation:
+    cmd: "python3 -c \"from src.model import Model; Model.load(name='Pyruvate Decarboxylation').run_and_save()\"\
+      \ "
+    deps:
+    - nodes/LoadEnzymeML/outs.json
+    params:
+    - Pyruvate Decarboxylation
+    outs:
+    - nodes/Pyruvate Decarboxylation/outs.json
+  Ethanol formation:
+    cmd: "python3 -c \"from src.model import Model; Model.load(name='Ethanol formation').run_and_save()\"\
+      \ "
+    deps:
+    - nodes/Pyruvate Decarboxylation/outs.json
+    params:
+    - Ethanol formation
+    outs:
+    - nodes/Ethanol formation/outs.json
+  ParameterEstimation:
+    cmd: "python3 -c \"from src.estimation import ParameterEstimation; ParameterEstimation.load(name='ParameterEstimation').run_and_save()\"\
+      \ "
+    deps:
+    - nodes/Ethanol formation/outs.json
+    params:
+    - ParameterEstimation
+    metrics:
+    - nodes/ParameterEstimation/metrics_no_cache.json:
+        cache: false

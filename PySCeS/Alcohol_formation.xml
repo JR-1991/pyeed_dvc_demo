@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbml xmlns="http://www.sbml.org/sbml/level3/version2/core" level="3" version="2">
+  <model name="Alcohol formation">
+    <listOfUnitDefinitions>
+      <unitDefinition metaid="METAID_U0" id="u0" name="ml">
+        <listOfUnits>
+          <unit kind="litre" exponent="1" scale="-3" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition metaid="METAID_U1" id="u1" name="mmole / l">
+        <listOfUnits>
+          <unit kind="litre" exponent="-1" scale="1" multiplier="1"/>
+          <unit kind="mole" exponent="1" scale="-3" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition metaid="METAID_U2" id="u2" name="fmole / l">
+        <listOfUnits>
+          <unit kind="litre" exponent="-1" scale="1" multiplier="1"/>
+          <unit kind="mole" exponent="1" scale="-15" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition metaid="METAID_U3" id="u3" name="1 / min">
+        <listOfUnits>
+          <unit kind="second" exponent="-1" scale="1" multiplier="60"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition metaid="METAID_U4" id="u4" name="mins">
+        <listOfUnits>
+          <unit kind="second" exponent="1" scale="1" multiplier="60"/>
+        </listOfUnits>
+      </unitDefinition>
+    </listOfUnitDefinitions>
+    <listOfCompartments>
+      <compartment id="v0" name="Tube" spatialDimensions="3" size="10" units="u0" constant="true"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species metaid="METAID_P0" sboTerm="SBO:0000252" id="p0" name="Pyruvic carboxylase" compartment="v0" initialConcentration="10" substanceUnits="u2" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
+        <annotation>
+          <enzymeml:protein xmlns:enzymeml="http://sbml.org/enzymeml/version2">
+            <enzymeml:sequence>MLKFRTVHGGLRLLGIRRTSTAPAASPNVRRLEYKPIKKVMVANRGEIAIRVFRACTELGIRTVAIYSEQDTGQMHRQKADEAYLIGRGLAPVQAYLHIPDIIKVAKENNVDAVHPGYGFLSERADFAQACQDAGVRFIGPSPEVVRKMGDKVEARAIAIAAGVPVVPGTDAPITSLHEAHEFSNTYGFPIIFKAAYGGGGRGMRVVHSYEELEENYTRAYSEALAAFGNGALFVEKFIEKPRHIEVQILGDQYGNILHLYERDCSIQRRHQKVVEIAPAAHLDPQLRTRLTSDSVKLAKQVGYENAGTVEFLVDRHGKHYFIEVNSRLQVEHTVTEEITDVDLVHAQIHVAEGRSLPDLGLRQENIRINGCAIQCRVTTEDPARSFQPDTGRIEVFRSGEGMGIRLDNASAFQGAVISPHYDSLLVKVIAHGKDHPTAATKMSRALAEFRVRGVKTNIAFLQNVLNNQQFLAGTVDTQFIDENPELFQLRPAQNRAQKLLHYLGHVMVNGPTTPIPVKASPSPTDPVVPAVPIGPPPAGFRDILLREGPEGFARAVRNHPGLLLMDTTFRDAHQSLLATRVRTHDLKKIAPYVAHNFSKLFSMENWGGATFDVAMRFLYECPWRRLQELRELIPNIPFQMLLRGANAVGYTNYPDNVVFKFCEVAKENGMDVFRVFDSLNYLPNMLLGMEAAGSAGGVVEAAISYTGDVADPSRTKYSLQYYMGLAEELVRAGTHILCIKDMAGLLKPTACTMLVSSLRDRFPDLPLHIHTHDTSGAGVAAMLACAQAGADVVDVAADSMSGMTSQPSMGALVACTRGTPLDTEVPMERVFDYSEYWEGARGLYAAFDCTATMKSGNSDVYENEIPGGQYTNLHFQAHSMGLGSKFKEVKKAYVEANQMLGDLIKVTPSSKIVGDLAQFMVQNGLSRAEAEAQAEELSFPRSVVEFLQGYIGVPHGGFPEPFRSKVLKDLPRVEGRPGASLPPLDLQALEKELVDRHGEEVTPEDVLSAAMYPDVFAHFKDFTATFGPLDSLNTRLFLQGPKIAEEFEVELERGKTLHIKALAVSDLNRAGQRQVFFELNGQLRSILVKDTQAMKEMHFHPKALKDVKGQIGAPMPGKVIDIKVVAGAKVAKGQPLCVLSAMKMETVVTSPMEGTVRKVHVTKDMTLEGDDLILEIE</enzymeml:sequence>
+            <enzymeml:ECnumber>6.4.1.1</enzymeml:ECnumber>
+            <enzymeml:uniprotID>P11498</enzymeml:uniprotID>
+          </enzymeml:protein>
+        </annotation>
+      </species>
+      <species metaid="METAID_P1" sboTerm="SBO:0000252" id="p1" name="YADH-1" compartment="v0" initialConcentration="20" substanceUnits="u2" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
+        <annotation>
+          <enzymeml:protein xmlns:enzymeml="http://sbml.org/enzymeml/version2">
+            <enzymeml:sequence>MSIPETQKGVIFYESHGKLEYKDIPVPKPKANELLINVKYSGVCHTDLHAWHGDWPLPVKLPLVGGHEGAGVVVGMGENVKGWKIGDYAGIKWLNGSCMACEYCELGNESNCPHADLSGYTHDGSFQQYATADAVQAAHIPQGTDLAQVAPILCAGITVYKALKSANLMAGHWVAISGAAGGLGSLAVQYAKAMGYRVLGIDGGEGKEELFRSIGGEVFIDFTKEKDIVGAVLKATDGGAHGVINVSVSEAAIEASTRYVRANGTTVLVGMPAGAKCCSDVFNQVVKSISIVGSYVGNRADTREALDFFARGLVKSPIKVVGLSTLPEIYEKMEKGQIVGRYVVDTSK</enzymeml:sequence>
+            <enzymeml:ECnumber>1.1.1.1</enzymeml:ECnumber>
+            <enzymeml:uniprotID>P00330</enzymeml:uniprotID>
+          </enzymeml:protein>
+        </annotation>
+      </species>
+      <species metaid="METAID_S0" sboTerm="SBO:0000247" id="s0" name="acetaldehyde" compartment="v0" initialConcentration="0" substanceUnits="u1" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
+        <annotation>
+          <enzymeml:reactant xmlns:enzymeml="http://sbml.org/enzymeml/version2">
+            <enzymeml:inchi>InChI=1S/C2H4O/c1-2-3/h2H,1H3</enzymeml:inchi>
+            <enzymeml:smiles>[H]C(C)=O</enzymeml:smiles>
+            <enzymeml:chebiID>CHEBI:15343</enzymeml:chebiID>
+          </enzymeml:reactant>
+        </annotation>
+      </species>
+      <species metaid="METAID_S1" sboTerm="SBO:0000247" id="s1" name="pyruvate" compartment="v0" initialConcentration="10" substanceUnits="u1" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
+        <annotation>
+          <enzymeml:reactant xmlns:enzymeml="http://sbml.org/enzymeml/version2">
+            <enzymeml:inchi>InChI=1S/C3H4O3/c1-2(4)3(5)6/h1H3,(H,5,6)/p-1</enzymeml:inchi>
+            <enzymeml:smiles>CC(=O)C([O-])=O</enzymeml:smiles>
+            <enzymeml:chebiID>CHEBI:15361</enzymeml:chebiID>
+          </enzymeml:reactant>
+        </annotation>
+      </species>
+      <species metaid="METAID_S2" sboTerm="SBO:0000247" id="s2" name="ethanol" compartment="v0" initialConcentration="0" substanceUnits="u1" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
+        <annotation>
+          <enzymeml:reactant xmlns:enzymeml="http://sbml.org/enzymeml/version2">
+            <enzymeml:inchi>InChI=1S/C2H6O/c1-2-3/h3H,2H2,1H3</enzymeml:inchi>
+            <enzymeml:smiles>CCO</enzymeml:smiles>
+            <enzymeml:chebiID>CHEBI:16236</enzymeml:chebiID>
+          </enzymeml:reactant>
+        </annotation>
+      </species>
+      <species metaid="METAID_S3" sboTerm="SBO:0000247" id="s3" name="acetaldehyde" compartment="v0" initialConcentration="0" substanceUnits="u1" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
+        <annotation>
+          <enzymeml:reactant xmlns:enzymeml="http://sbml.org/enzymeml/version2">
+            <enzymeml:inchi>InChI=1S/C2H4O/c1-2-3/h2H,1H3</enzymeml:inchi>
+            <enzymeml:smiles>[H]C(C)=O</enzymeml:smiles>
+            <enzymeml:chebiID>CHEBI:15343</enzymeml:chebiID>
+          </enzymeml:reactant>
+        </annotation>
+      </species>
+    </listOfSpecies>
+    <listOfReactions>
+      <annotation>
+        <enzymeml:data xmlns:enzymeml="http://sbml.org/enzymeml/version2">
+          <enzymeml:formats>
+            <enzymeml:format id="format0">
+              <enzymeml:column type="time" unit="u4" index="0"/>
+              <enzymeml:column replica="repl_s0_10.0" species="s0" type="conc" unit="u1" index="1" isCalculated="False"/>
+            </enzymeml:format>
+            <enzymeml:format id="format1">
+              <enzymeml:column type="time" unit="u4" index="0"/>
+              <enzymeml:column replica="repl_s0_20.0" species="s0" type="conc" unit="u1" index="1" isCalculated="False"/>
+            </enzymeml:format>
+            <enzymeml:format id="format2">
+              <enzymeml:column type="time" unit="u4" index="0"/>
+              <enzymeml:column replica="repl_s0_30.0" species="s0" type="conc" unit="u1" index="1" isCalculated="False"/>
+            </enzymeml:format>
+            <enzymeml:format id="format3">
+              <enzymeml:column type="time" unit="u4" index="0"/>
+              <enzymeml:column replica="repl_s0_50.0" species="s0" type="conc" unit="u1" index="1" isCalculated="False"/>
+            </enzymeml:format>
+            <enzymeml:format id="format4">
+              <enzymeml:column type="time" unit="u4" index="0"/>
+              <enzymeml:column replica="repl_s0_100.0" species="s0" type="conc" unit="u1" index="1" isCalculated="False"/>
+            </enzymeml:format>
+          </enzymeml:formats>
+          <enzymeml:listOfMeasurements>
+            <enzymeml:measurement file="file0" id="m0" name="s0_10.0">
+              <enzymeml:initConc reactant="s0" value="10.0" unit="u1"/>
+              <enzymeml:initConc reactant="s1" value="0.0" unit="u1"/>
+              <enzymeml:initConc reactant="s2" value="0.0" unit="u1"/>
+              <enzymeml:initConc reactant="s3" value="0.0" unit="u1"/>
+            </enzymeml:measurement>
+            <enzymeml:measurement file="file1" id="m1" name="s0_20.0">
+              <enzymeml:initConc reactant="s0" value="20.0" unit="u1"/>
+              <enzymeml:initConc reactant="s1" value="0.0" unit="u1"/>
+              <enzymeml:initConc reactant="s2" value="0.0" unit="u1"/>
+              <enzymeml:initConc reactant="s3" value="0.0" unit="u1"/>
+            </enzymeml:measurement>
+            <enzymeml:measurement file="file2" id="m2" name="s0_30.0">
+              <enzymeml:initConc reactant="s0" value="30.0" unit="u1"/>
+              <enzymeml:initConc reactant="s1" value="0.0" unit="u1"/>
+              <enzymeml:initConc reactant="s2" value="0.0" unit="u1"/>
+              <enzymeml:initConc reactant="s3" value="0.0" unit="u1"/>
+            </enzymeml:measurement>
+            <enzymeml:measurement file="file3" id="m3" name="s0_50.0">
+              <enzymeml:initConc reactant="s0" value="50.0" unit="u1"/>
+              <enzymeml:initConc reactant="s1" value="0.0" unit="u1"/>
+              <enzymeml:initConc reactant="s2" value="0.0" unit="u1"/>
+              <enzymeml:initConc reactant="s3" value="0.0" unit="u1"/>
+            </enzymeml:measurement>
+            <enzymeml:measurement file="file4" id="m4" name="s0_100.0">
+              <enzymeml:initConc reactant="s0" value="100.0" unit="u1"/>
+              <enzymeml:initConc reactant="s1" value="0.0" unit="u1"/>
+              <enzymeml:initConc reactant="s2" value="0.0" unit="u1"/>
+              <enzymeml:initConc reactant="s3" value="0.0" unit="u1"/>
+            </enzymeml:measurement>
+          </enzymeml:listOfMeasurements>
+          <enzymeml:files>
+            <enzymeml:file file="./data/m0.csv" format="format0" id="file0"/>
+            <enzymeml:file file="./data/m1.csv" format="format1" id="file1"/>
+            <enzymeml:file file="./data/m2.csv" format="format2" id="file2"/>
+            <enzymeml:file file="./data/m3.csv" format="format3" id="file3"/>
+            <enzymeml:file file="./data/m4.csv" format="format4" id="file4"/>
+          </enzymeml:files>
+        </enzymeml:data>
+      </annotation>
+      <reaction metaid="METAID_R0" sboTerm="SBO:0000176" id="r0" name="Pyruvate Decarboxylation" reversible="false">
+        <listOfReactants>
+          <speciesReference sboTerm="SBO:0000015" species="s1" stoichiometry="1" constant="false"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference sboTerm="SBO:0000011" species="s0" stoichiometry="1" constant="false"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference sboTerm="SBO:0000013" species="p0"/>
+        </listOfModifiers>
+        <kineticLaw name="Model_r0">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <divide/>
+              <apply>
+                <times/>
+                <ci> kcat </ci>
+                <ci> p0 </ci>
+                <ci> s1 </ci>
+              </apply>
+              <apply>
+                <plus/>
+                <ci> s1 </ci>
+                <ci> Km </ci>
+              </apply>
+            </apply>
+          </math>
+          <listOfLocalParameters>
+            <localParameter id="Km" value="20" units="u1">
+              <annotation>
+                <enzymeml:parameter xmlns:enzymeml="http://sbml.org/enzymeml/version2">
+                  <enzymeml:initialValue>20.0</enzymeml:initialValue>
+                  <enzymeml:upperBound>30.0</enzymeml:upperBound>
+                  <enzymeml:lowerBound>1e-07</enzymeml:lowerBound>
+                </enzymeml:parameter>
+              </annotation>
+            </localParameter>
+            <localParameter id="kcat" value="5" units="u3">
+              <annotation>
+                <enzymeml:parameter xmlns:enzymeml="http://sbml.org/enzymeml/version2">
+                  <enzymeml:initialValue>5.0</enzymeml:initialValue>
+                  <enzymeml:upperBound>15.0</enzymeml:upperBound>
+                  <enzymeml:lowerBound>1e-07</enzymeml:lowerBound>
+                </enzymeml:parameter>
+              </annotation>
+            </localParameter>
+          </listOfLocalParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction metaid="METAID_R1" sboTerm="SBO:0000176" id="r1" name="Ethanol formation" reversible="false">
+        <listOfReactants>
+          <speciesReference sboTerm="SBO:0000015" species="s0" stoichiometry="1" constant="false"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference sboTerm="SBO:0000011" species="s2" stoichiometry="1" constant="false"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference sboTerm="SBO:0000013" species="p1"/>
+        </listOfModifiers>
+        <kineticLaw name="Model_r1">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <divide/>
+              <apply>
+                <times/>
+                <ci> kcat </ci>
+                <ci> p1 </ci>
+                <ci> s0 </ci>
+              </apply>
+              <apply>
+                <plus/>
+                <ci> s0 </ci>
+                <ci> Km </ci>
+              </apply>
+            </apply>
+          </math>
+          <listOfLocalParameters>
+            <localParameter id="Km" value="50" units="u1">
+              <annotation>
+                <enzymeml:parameter xmlns:enzymeml="http://sbml.org/enzymeml/version2">
+                  <enzymeml:initialValue>50.0</enzymeml:initialValue>
+                  <enzymeml:upperBound>60.0</enzymeml:upperBound>
+                  <enzymeml:lowerBound>1e-07</enzymeml:lowerBound>
+                </enzymeml:parameter>
+              </annotation>
+            </localParameter>
+            <localParameter id="kcat" value="3" units="u3">
+              <annotation>
+                <enzymeml:parameter xmlns:enzymeml="http://sbml.org/enzymeml/version2">
+                  <enzymeml:initialValue>3.0</enzymeml:initialValue>
+                  <enzymeml:upperBound>13.0</enzymeml:upperBound>
+                  <enzymeml:lowerBound>1e-07</enzymeml:lowerBound>
+                </enzymeml:parameter>
+              </annotation>
+            </localParameter>
+          </listOfLocalParameters>
+        </kineticLaw>
+      </reaction>
+    </listOfReactions>
+  </model>
+</sbml>

@@ -1,0 +1,32 @@
+{
+    "Pyruvate Decarboxylation": {
+        "data": {
+            "_type": "ZnTrackType",
+            "value": {
+                "module": "src.load",
+                "cls": "LoadEnzymeML",
+                "name": "LoadEnzymeML"
+            }
+        }
+    },
+    "Ethanol formation": {
+        "data": {
+            "_type": "ZnTrackType",
+            "value": {
+                "module": "src.model",
+                "cls": "Model",
+                "name": "Pyruvate Decarboxylation"
+            }
+        }
+    },
+    "ParameterEstimation": {
+        "data": {
+            "_type": "ZnTrackType",
+            "value": {
+                "module": "src.model",
+                "cls": "Model",
+                "name": "Ethanol formation"
+            }
+        }
+    }
+}

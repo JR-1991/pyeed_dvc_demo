@@ -232,11 +232,11 @@
             </apply>
           </math>
           <listOfLocalParameters>
-            <localParameter id="Km" value="50" units="u1">
+            <localParameter id="Km" value="20" units="u1">
               <annotation>
                 <enzymeml:parameter xmlns:enzymeml="http://sbml.org/enzymeml/version2">
-                  <enzymeml:initialValue>50.0</enzymeml:initialValue>
-                  <enzymeml:upperBound>60.0</enzymeml:upperBound>
+                  <enzymeml:initialValue>20.0</enzymeml:initialValue>
+                  <enzymeml:upperBound>30.0</enzymeml:upperBound>
                   <enzymeml:lowerBound>1e-07</enzymeml:lowerBound>
                 </enzymeml:parameter>
               </annotation>

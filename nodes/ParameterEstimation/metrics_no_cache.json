@@ -1,17 +1,17 @@
 {
     "parameters": {
         "r0": {
-            "Km": 20.0,
-            "kcat": 5.0
+            "Km": 29.36603177627079,
+            "kcat": 3.390816911392385
         },
         "r1": {
-            "Km": 50.0,
-            "kcat": 3.000000000000001
+            "Km": 29.999999884277635,
+            "kcat": 2.378407723367964
         }
     },
     "statistics": {
-        "Akaike criteria": -1959.9700120316388,
-        "Chi-Squared": 9.723830103629146e-28,
-        "Bayesian info criteria": -1954.3652225049902
+        "Akaike criteria": 1.2404714536922423,
+        "Chi-Squared": 23.94787907221609,
+        "Bayesian info criteria": 6.845260980340864
     }
 }

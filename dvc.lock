@@ -9,14 +9,14 @@ stages:
           path: Ethanol_Formation_Simulated.omex
     outs:
     - path: nodes/LoadEnzymeML/outs.json
-      md5: e0ea95427ba44296f76a373c0e5d1f66
+      md5: 606048688c46c83c755a95d2883d6e1a
       size: 56648
   Pyruvate Decarboxylation:
     cmd: "python3 -c \"from src.model import Model; Model.load(name='Pyruvate Decarboxylation').run_and_save()\"\
       \ "
     deps:
     - path: nodes/LoadEnzymeML/outs.json
-      md5: e0ea95427ba44296f76a373c0e5d1f66
+      md5: 606048688c46c83c755a95d2883d6e1a
       size: 56648
     params:
       params.yaml:
@@ -38,14 +38,14 @@ stages:
           reaction: r0
     outs:
     - path: nodes/Pyruvate Decarboxylation/outs.json
-      md5: 9d6655d30e6328a0d0129fa26d24bb82
+      md5: 83dfe55b1d768bd0d8c2a04c281be512
       size: 62008
   Ethanol formation:
     cmd: "python3 -c \"from src.model import Model; Model.load(name='Ethanol formation').run_and_save()\"\
       \ "
     deps:
     - path: nodes/Pyruvate Decarboxylation/outs.json
-      md5: 9d6655d30e6328a0d0129fa26d24bb82
+      md5: 83dfe55b1d768bd0d8c2a04c281be512
       size: 62008
     params:
       params.yaml:
@@ -63,24 +63,30 @@ stages:
               unit: 1 / min
               upper: 13.0
               value: 3.0
-          equation: kcat * p1 * s0 / (s0 + Km)
+            Kp:
+              initial_value: 10.0
+              lower: 1e-07
+              unit: 1 / min
+              upper: 13.0
+              value: 3.0
+          equation: kcat * p1 * s0 / (s0 + Kp + Km)
           reaction: r1
     outs:
     - path: nodes/Ethanol formation/outs.json
-      md5: 62081be304534281163b8e1d25743bb5
-      size: 62568
+      md5: 1bd026152244ee684b8cabf1a18fb2f4
+      size: 63570
   ParameterEstimation:
     cmd: "python3 -c \"from src.estimation import ParameterEstimation; ParameterEstimation.load(name='ParameterEstimation').run_and_save()\"\
       \ "
     deps:
     - path: nodes/Ethanol formation/outs.json
-      md5: 62081be304534281163b8e1d25743bb5
-      size: 62568
+      md5: 1bd026152244ee684b8cabf1a18fb2f4
+      size: 63570
     params:
       params.yaml:
         ParameterEstimation:
           thinlayer: pysces
     outs:
     - path: nodes/ParameterEstimation/metrics_no_cache.json
-      md5: 7e6f297bbc95cd6e69e2672c296c6acf
-      size: 367
+      md5: ed6ae7bf52535f9600f87ff2bef7a2f9
+      size: 443

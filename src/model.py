@@ -20,16 +20,14 @@ class Model(Node):
         
         # Fetch the reaction
         reaction = self.data.enzmldoc.reaction_dict[self.reaction]
-        
+
         # Create the model
         equation = self._replace_names_with_ids(self.equation)
         model = pe.KineticModel.fromEquation(name=f"Model_{self.reaction}", equation=equation)
-        
+
         # For demo, apply any init values
         for parameter in model.parameters:
-            param_config = self.config.get(parameter.name)
-            
-            if param_config:
+            if param_config := self.config.get(parameter.name):
                 parameter.value = param_config.get("value")
                 parameter.initial_value = param_config.get("initial_value")
                 parameter.lower = param_config.get("lower")
@@ -39,10 +37,10 @@ class Model(Node):
                 raise ValueError(
                     f"Please specify at least an `initial value` for parameter `{parameter.name}`"
                 )
-        
+
         # Add model to reaction
         reaction.model = model
-        
+
         self.enzmldoc = self.data.enzmldoc.copy(deep=True)
         
         

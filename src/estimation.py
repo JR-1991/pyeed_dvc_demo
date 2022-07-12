@@ -22,7 +22,7 @@ class ParameterEstimation(Node):
         
         # Write OMEX to read
         self.data.enzmldoc.toFile(".", "document")
-        
+
         if self.thinlayer.lower() == "copasi":
             # Initialize COPASI Thin Layer
             thinlayer = ThinLayerCopasi(
@@ -37,11 +37,11 @@ class ParameterEstimation(Node):
             raise KeyError(
                 f"Thin layer {self.thinlayer} does not exist. Please use either `copasi` or `pysces`"
             )
-        
+
         # Perform estimation
         result = thinlayer.optimize()
         modelled = thinlayer.write()
-        
+
         # Extract parameters to metrics
         self.parameters = {
             reaction.id: {
@@ -50,12 +50,13 @@ class ParameterEstimation(Node):
             }
             for reaction in modelled.reaction_dict.values()
         }
-        
+
         if self.thinlayer.lower() == "pysces":
             
-            statistics = {}
-            statistics["Akaike criteria"] = result.aic
-            statistics["Chi-Squared"] = result.chisqr
-            statistics["Bayesian info criteria"] = result.bic
-            
+            statistics = {
+                "Akaike criteria": result.aic,
+                "Chi-Squared": result.chisqr,
+                "Bayesian info criteria": result.bic,
+            }
+
             self.statistics = statistics

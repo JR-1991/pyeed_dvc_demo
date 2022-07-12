@@ -9,15 +9,15 @@ stages:
           path: Ethanol_Formation_Simulated.omex
     outs:
     - path: nodes/LoadEnzymeML/outs.json
-      md5: e0ea95427ba44296f76a373c0e5d1f66
-      size: 56648
+      md5: 73d09ba6774fefdb548a9a065c081ca8
+      size: 86306202
   Pyruvate Decarboxylation:
     cmd: "python3 -c \"from src.model import Model; Model.load(name='Pyruvate Decarboxylation').run_and_save()\"\
       \ "
     deps:
     - path: nodes/LoadEnzymeML/outs.json
-      md5: e0ea95427ba44296f76a373c0e5d1f66
-      size: 56648
+      md5: 73d09ba6774fefdb548a9a065c081ca8
+      size: 86306202
     params:
       params.yaml:
         Pyruvate Decarboxylation:
@@ -38,15 +38,15 @@ stages:
           reaction: r0
     outs:
     - path: nodes/Pyruvate Decarboxylation/outs.json
-      md5: 9d6655d30e6328a0d0129fa26d24bb82
-      size: 62008
+      md5: dae7beeb49f5e588920528dc4b547bf4
+      size: 85540607
   Ethanol formation:
     cmd: "python3 -c \"from src.model import Model; Model.load(name='Ethanol formation').run_and_save()\"\
       \ "
     deps:
     - path: nodes/Pyruvate Decarboxylation/outs.json
-      md5: 9d6655d30e6328a0d0129fa26d24bb82
-      size: 62008
+      md5: dae7beeb49f5e588920528dc4b547bf4
+      size: 85540607
     params:
       params.yaml:
         Ethanol formation:
@@ -67,20 +67,20 @@ stages:
           reaction: r1
     outs:
     - path: nodes/Ethanol formation/outs.json
-      md5: 62081be304534281163b8e1d25743bb5
-      size: 62568
+      md5: 393712c3afc28861f6956fd6ee0285a6
+      size: 84767581
   ParameterEstimation:
     cmd: "python3 -c \"from src.estimation import ParameterEstimation; ParameterEstimation.load(name='ParameterEstimation').run_and_save()\"\
       \ "
     deps:
     - path: nodes/Ethanol formation/outs.json
-      md5: 62081be304534281163b8e1d25743bb5
-      size: 62568
+      md5: 393712c3afc28861f6956fd6ee0285a6
+      size: 84767581
     params:
       params.yaml:
         ParameterEstimation:
           thinlayer: pysces
     outs:
     - path: nodes/ParameterEstimation/metrics_no_cache.json
-      md5: 7e6f297bbc95cd6e69e2672c296c6acf
-      size: 367
+      md5: 5bfd1c973fe1f023dc45d50f88968110
+      size: 352
